@@ -1,0 +1,29 @@
+{
+    "name": "sirolad/potato-orm",
+    "description": "A basic CRUD Object Relational Mapper",
+    "type": "Library",
+    "license": "MIT",
+    "keywords": [
+        "orm", "database", "php"
+    ],
+    "authors": [
+        {
+            "name": "Surajudeen Akande",
+            "email": "surajudeen.akande@andela.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "vlucas/phpdotenv": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.0.7",
+        "Mockery/Mockery": "0.9.4"
+    },
+    "autoload":{
+        "psr-4": {
+            "Sirolad\\Potato\\": "src/"
+        },
+        "classmap": ["src/"]
+    }
+}
