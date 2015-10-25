@@ -40,10 +40,10 @@
        "test": "phpunit"
    },
     "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.example.com"
-        },
+        // {
+        //     "type": "composer",
+        //     "url": "https://packagist.org/packages/sirolad/potatoORM"
+        // },
         {
             "type": "vcs",
             "url": "https://github.com/andela-sakande/potatoORM"
