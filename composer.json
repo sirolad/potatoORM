@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "vlucas/phpdotenv": "~2.0"
+        "vlucas/phpdotenv": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0.7",
@@ -26,13 +26,14 @@
     },
     "autoload":{
         "psr-4": {
-            "Sirolad\\Potato\\": "src/"
+            "Sirolad\\Potato\\": "src/",
+            "Sirolad\\Potato\\Libraries\\": "src/Libraries"
         },
         "classmap": ["src/"]
     },
     "autoload-dev":{
         "psr-4": {
-            "Sirolad\\Potato\\Test": "tests/"
+            "Sirolad\\Potato\\Test\\": "tests/"
         },
         "classmap": ["tests/"]
     },
@@ -40,10 +41,6 @@
        "test": "phpunit"
    },
     "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packagist.org/packages/sirolad/potatoORM"
-        },
         {
             "type": "vcs",
             "url": "https://github.com/andela-sakande/potatoORM"

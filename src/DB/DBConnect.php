@@ -1,48 +1,46 @@
 <?php
-
 namespace Sirolad\Potato\DB;
 
+use PDO;
 use Dotenv\Dotenv;
 
-class DBConnect extends \PDO
+class DBConnect
 {
-    protected static $host;
-    protected static $user;
-    protected static $pass;
-    protected static $dbport;
-    protected static $dbtype;
-    protected static $dbname;
+    protected $host;
+    protected $user;
+    protected $pass;
+    protected $dbport;
+    protected $dbtype;
+    protected $dbname;
 
-    public function __construct()
+    public function getConnection()
     {
-        self::loader();
+        $this->loader();
         try {
-            if (self::$dbtype === 'pgsql') {
-                $conn = new PDO(self::$dbtype . 'host=' . self::$host . ';port=' . self::$port . ';dbname=' .
-                 self::$dbname .';user' . self::$user . ';password=' . self::$pass);
+            if ($this->dbtype === 'pgsql') {
+                $conn = new PDO($this->dbtype . 'host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname . ';user' . $this->user . ';password=' . $this->pass);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->setAttribute(PDO::ATTR_PERSISTENT, false);
-            } elseif (self::$dbtype === 'mysql') {
-                $conn = new PDO(self::$dbtype . ':host=' . self::$host . ';dbname=' . self::$dbname .
-                 ';charset=utf8mb4', self::$user, self::$pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            } elseif ($this->dbtype === 'mysql') {
+                $conn = new PDO($this->dbtype . ':host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8mb4', $this->user, $this->pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                                 PDO::ATTR_PERSISTENT => false]);
             }
         } catch (PDOException $e) {
             return $e->getMessage();
         }
+
         return $conn;
     }
 
     public function loader()
     {
-        self::loadDotenv();
-
-        self::$host     = getEnv('DB_HOST');
-        self::$user     = getEnv('DB_USERNAME');
-        self::$pass     = getEnv('DB_PASSWORD');
-        self::$port     = getEnv('DB_PORT');
-        self::$dbname   = getEnv('DB_NAME');
-        self::$dbtype   = getEnv('DB_ENGINE');
+        $this->loadDotenv();
+        $this->host = getenv('DB_HOST');
+        $this->user = getenv('DB_USERNAME');
+        $this->pass = getenv('DB_PASSWORD');
+        $this->dbport = getenv('DB_PORT');
+        $this->dbname = getenv('DB_DATABASE');
+        $this->dbtype = getenv('DB_ENGINE');
     }
 
     /**
@@ -50,7 +48,7 @@ class DBConnect extends \PDO
      */
     public function loadDotenv()
     {
-          $dotEnv = new Dotenv(__DIR__ . '/../../');
-          $dotEnv->load();
+        $dotEnv = new Dotenv($_SERVER['DOCUMENT_ROOT']);
+        $dotEnv->load();
     }
 }

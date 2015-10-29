@@ -6,7 +6,7 @@ use Sirolad\Potato\Exception;
 
 class Formatter
 {
-    public function decideS($str)
+    public static function decideS($str)
     {
         $tableNameAsArray = str_split($str);
 
@@ -17,7 +17,7 @@ class Formatter
             $str .= 's';
         }
 
-        return $word;
+        return $str;
     }
 
     public static function tokenize($str, $delimiter)
