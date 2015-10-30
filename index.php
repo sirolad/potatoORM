@@ -15,19 +15,19 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 
 #User Operations
 //insert
-$user = new User();
-$user->login = "Jackbauer";
-$user->password = "password";
-$user->age = 34;
-$g=$user->save();
-var_dump($g);
+// $user = new User();
+// $user->login = "Oladigba Ogunbiyi";
+// $user->password = md5("normandy");
+// $user->age = 56;
+// $g=$user->save();
+// var_dump($g);
 
 // $user = User::find(13);
 // $user->login = "Ginger";
 // $user->save();
 // var_dump($g);
 
-// $user = User::destroy(11);
+//$user = User::destroy(1);
 
 // var_dump($user);
 //Update

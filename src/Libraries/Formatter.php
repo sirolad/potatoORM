@@ -27,7 +27,7 @@ class Formatter
         $output .= $token;
 
         while ($token) {
-            $token = strtok($delimeter);
+            $token = strtok($delimiter);
             $output .= ',' .$token;
         }
 
