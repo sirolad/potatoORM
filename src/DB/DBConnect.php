@@ -1,5 +1,5 @@
 <?php
-namespace Sirolad\Potato\DB;
+namespace Sirolad\DB;
 
 use PDO;
 use Dotenv\Dotenv;
@@ -18,7 +18,7 @@ class DBConnect
         $this->loader();
         try {
             if ($this->dbtype === 'pgsql') {
-                $conn = new PDO($this->dbtype . 'host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->dbname . ';user' . $this->user . ';password=' . $this->pass);
+                $conn = new PDO($this->dbtype . ':host=' . $this->host . ';port=' . $this->dbport . ';dbname=' . $this->dbname . ';user=' . $this->user . ';password=' . $this->pass);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->setAttribute(PDO::ATTR_PERSISTENT, false);
             } elseif ($this->dbtype === 'mysql') {

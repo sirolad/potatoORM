@@ -1,9 +1,9 @@
 <?php
-namespace Sirolad\Potato\Libraries;
+namespace Sirolad\Libraries;
 
-use Sirolad\Potato\DB\DBConnect;
-use Sirolad\Potato\Libraries\Formatter;
-use Sirolad\Potato\Exceptions\TableDoesNotExistException;
+use Sirolad\DB\DBConnect;
+use Sirolad\Libraries\Formatter;
+use Sirolad\Exceptions\TableDoesNotExistException;
 
 /**
  *

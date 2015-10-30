@@ -1,13 +1,18 @@
 <?php
 
-namespace Sirolad\Potato\Exceptions;
+namespace Sirolad\Exceptions;
 
 use PDOException;
 
 class RecordNotFoundException extends PDOException
 {
+    public function __construct()
+    {
+        parent::__construct('This record does not exist.');
+    }
+
     public function message()
     {
-        return 'This record does not exist.';
+        return 'Error: ' . $this->getMessage();
     }
 }

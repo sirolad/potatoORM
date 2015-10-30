@@ -1,17 +1,17 @@
 <?php
 
-namespace Sirolad\Potato;
+namespace Sirolad;
 
 use PDO;
 use PDOException;
-use Sirolad\Potato\DB\DBConnect;
-use Sirolad\Potato\Libraries\Formatter;
-use Sirolad\Potato\Libraries\TableMapper;
-use Sirolad\Potato\Exceptions\EmptyTableException;
-use Sirolad\Potato\Exceptions\RecordNotFoundException;
-use Sirolad\Potato\Exceptions\TableDoesNotExistException;
+use Sirolad\DB\DBConnect;
+use Sirolad\Libraries\Formatter;
+use Sirolad\Libraries\TableMapper;
+use Sirolad\Exceptions\EmptyTableException;
+use Sirolad\Exceptions\RecordNotFoundException;
+use Sirolad\Exceptions\TableDoesNotExistException;
 
-class Potato
+abstract class Potato
 {
     protected $record = [];
 
@@ -78,7 +78,7 @@ class Potato
         }
 
         if ($query->rowCount()) {
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($query->fetchAll(PDO::FETCH_ASSOC), JSON_FORCE_OBJECT);
         } else {
             throw new EmptyTableException;
         }

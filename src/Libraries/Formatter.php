@@ -1,8 +1,8 @@
 <?php
 
-namespace Sirolad\Potato\Libraries;
+namespace Sirolad\Libraries;
 
-use Sirolad\Potato\Exception;
+use Sirolad\Exception;
 
 class Formatter
 {

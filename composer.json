@@ -26,14 +26,13 @@
     },
     "autoload":{
         "psr-4": {
-            "Sirolad\\Potato\\": "src/",
-            "Sirolad\\Potato\\Libraries\\": "src/Libraries"
+            "Sirolad\\": "src/"
         },
         "classmap": ["src/"]
     },
     "autoload-dev":{
         "psr-4": {
-            "Sirolad\\Potato\\Test\\": "tests/"
+            "Sirolad\\Test\\": "tests/"
         },
         "classmap": ["tests/"]
     },

@@ -1,13 +1,18 @@
 <?php
 
-namespace Sirolad\Potato\Exceptions;
+namespace Sirolad\Exceptions;
 
 use PDOException;
 
 class EmptyTableException extends PDOException
 {
+    public function __construct()
+    {
+        parent::__construct('The table is empty.');
+    }
+
     public function message()
     {
-        return 'The table is empty.';
+        return 'Error: ' . $this->getMessage();
     }
 }
