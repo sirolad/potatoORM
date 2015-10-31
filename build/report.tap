@@ -1,0 +1,13 @@
+TAP version 13
+ok 1 - Sirolad\Test\FormatterTest::testdecideS
+ok 2 - Sirolad\Test\FormatterTest::testGenerateUnnamedPlaceholders
+ok 3 - Sirolad\Test\FormatterTest::testTokenize
+not ok 4 - Failure: Sirolad\Test\FormatterTest::testMakeAssociativeArray
+  ---
+  message: 'Failed asserting that two arrays are equal.'
+  severity: fail
+  data:
+      got: [token=NULL, 'token_expire="today"']
+      expected: [token=NULL, 'token_expire=''today''']
+  ...
+1..4
