@@ -1,18 +1,50 @@
 <?php
+/**
+ * @package A simple ORM that performs basic CRUD operations
+ * @author Surajudeen AKANDE <surajudeen.akande@andela.com>
+ * @license MIT <https://opensource.org/licenses/MIT>
+ * @link http://www.github.com/andela-sakande
+ * */
+
 namespace Sirolad\DB;
 
 use PDO;
 use Dotenv\Dotenv;
-
+/**
+ * This class manages the database connection for PotatoORM
+ * It loads environmental variables from .env file
+ * It has been proven to connect with MySQL and PgSQL databases.
+ * */
 class DBConnect
 {
+    /**
+     * @var string
+     * */
     protected $host;
+    /**
+     * @var string
+     * */
     protected $user;
+    /**
+     * @var string
+     * */
     protected $pass;
+    /**
+     * @var integer
+     * */
     protected $dbport;
+    /**
+     * @var string
+     * */
     protected $dbtype;
+    /**
+     * @var string
+     * */
     protected $dbname;
 
+    /**
+     * This method makes connection to the database on getting the necessary parameters.
+     * */
     public function getConnection()
     {
         $this->loader();
@@ -32,6 +64,9 @@ class DBConnect
         return $conn;
     }
 
+    /**
+     * Loads up the database configuration options from the .env file
+     */
     public function loader()
     {
         $this->loadDotenv();
@@ -44,7 +79,8 @@ class DBConnect
     }
 
     /**
-     * Loads environment variables
+     * Makes connection to the env file in the root folder
+     * @return void
      */
     public function loadDotenv()
     {
