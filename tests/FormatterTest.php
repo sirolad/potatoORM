@@ -1,7 +1,6 @@
 <?php
 namespace Sirolad\Test;
 
-use Mockery;
 use Sirolad\Libraries\Formatter;
 
 class FormatterTest extends \PHPUnit_Framework_TestCase
@@ -26,6 +25,6 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testMakeAssociativeArray()
     {
-        $this->assertEquals(["token=NULL", "token_expire='today'"], Formatter::makeAssociativeArray(['' => '', 'token' => null, 'token_expire' => 'today']));
+        $this->assertEquals(["token=NULL", 'token_expire="today"'], Formatter::makeAssociativeArray(['' => '', 'token' => null, 'token_expire' => 'today']));
     }
 }

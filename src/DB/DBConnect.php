@@ -48,7 +48,7 @@ class DBConnect
      */
     public function loadDotenv()
     {
-        $dotEnv = new Dotenv($_SERVER['DOCUMENT_ROOT']);
+        $dotEnv = new Dotenv(__DIR__.'/../..');
         $dotEnv->load();
     }
 }
