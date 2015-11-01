@@ -8,6 +8,7 @@
  * */
 namespace Sirolad\Libraries;
 
+use PDOException;
 use Sirolad\DB\DBConnect;
 use Sirolad\Libraries\Formatter;
 use Sirolad\Exceptions\TableDoesNotExistException;
@@ -17,57 +18,45 @@ use Sirolad\Exceptions\TableDoesNotExistException;
  */
 class TableMapper
 {
-
+    /**
+     * Check for the existence of a table in the currentt database
+     *
+     * @param string $table Name of table to be searched in the database
+     * @param DbConnnect $dbConnect Database connection object
+     * @return string Name of the table checked
+     */
     public static function checkTableName($table)
     {
         $dbConnect = new DBConnect();
         try {
             $result = $dbConnect->getConnection()->query('SELECT 1 FROM ' . $table . ' LIMIT 1');
-            if($result !== false)
-            {
+            if ($result !== false) {
                 return $table;
             }
-        } catch (\PDOException $e) {
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
         finally {
-            $dbConn = null;
+            $dbConnect = null;
         }
     }
 
-    public static function mapClassToTable($className)
-    {
-        if ($demarcation !== false) {
-            $table = strtolower(substr($className, $demarcation + 1));
-        }
-        else {
-            $table = strtolower($className);
-        }
-
-        $conn = new DBConnect();
-
-        if (!self::checkForTable($table, $conn)) {
-            $table = Formatter::decideS($table);
-
-            if (!self::checkForTable($table, $conn)) {
-                throw new TableDoesNotExistException;
-            }
-        }
-
-        return $table;
-    }
-
+    /**
+     * @var array classname from class namespace
+     * @return string which is in lower case
+     **/
     public static function getClassName($className)
     {
-
         $demarcation = explode('\\', $className);
-
         return Formatter::decideS(strtolower($demarcation[2]));
     }
 
-    public static function getTableName($className)
+    /**
+     * @var array classname from class namespace
+     * @return string classname mapped to tablename
+     **/
+    public static function mapTableToClass($className)
     {
         return self::checkTableName(self::getClassName($className));
-
     }
 }

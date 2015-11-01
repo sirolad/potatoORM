@@ -1,15 +1,19 @@
 <?php
+
 /**
  * @package A simple ORM that performs basic CRUD operations
  * @author Surajudeen AKANDE <surajudeen.akande@andela.com>
  * @license MIT <https://opensource.org/licenses/MIT>
  * @link http://www.github.com/andela-sakande
  * */
-namespace Sirolad\Exceptions;
+namespace Sirolad\Entities;
 
-use PDOException;
+use Sirolad\Potato;
 
-class TableDoesNotExistException extends PDOException
+/**
+ * Extends the main class as an entity
+ * */
+class Motor extends Potato
 {
 
 }

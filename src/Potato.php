@@ -20,39 +20,80 @@ use Sirolad\Exceptions\EmptyTableException;
 use Sirolad\Exceptions\RecordNotFoundException;
 use Sirolad\Exceptions\TableDoesNotExistException;
 
+/**
+ * Potato is the main class which is not to be instantiated.
+ * */
 abstract class Potato
 {
+    /**
+     * @var array Array for holding properties set with magic method __set()
+     */
     protected $record = [];
 
-    public function __set($field, $value) {
+    /**
+     * Set property dynamically
+     *
+     * @param string $field Property set dynamically
+     * @param string $value Value of property set dynamically
+     */
+    public function __set($field, $value)
+    {
         $this->record[$field] = $value;
     }
 
-    public function tableName() {
-        return TableMapper::getTableName(get_called_class());
+    /**
+     * @return string table name of Called class
+     */
+    public function tableName()
+    {
+        return TableMapper::mapTableToClass(get_called_class());
     }
 
-    public function getRecord() {
+    /**
+     * Provide a read access to protected $record array
+     *
+     * @return array $record Array of variables set dynamically with method __set()
+     */
+    public function getRecord()
+    {
         return $this->record;
     }
 
-    protected function makeDbConn() {
+    /**
+     * @return Database connection
+     */
+    protected function makeDbConn()
+    {
         $getConn = new DBConnect();
         return $getConn->getConnection();
     }
 
-    public function find($record) {
+    /**
+     * Get a distinct record from the database
+     *
+     * @param int $record Index of record to get
+     * @return string|object
+     */
+    public function find($record)
+    {
         return self::where('id', $record);
     }
 
-    public function where($field, $value) {
+    /**
+     * Get a record in the database
+     *
+     * @param string $field Field name to search under
+     * @param string $value Field value to search for
+     * @return string|object
+     */
+    public function where($field, $value)
+    {
         try {
-            $dbConn = self::makeDbConn();
+            $dbConnect = self::makeDbConn();
             $sql = 'SELECT * FROM ' . self::tableName() . ' WHERE ' . $field . ' = ?';
-            $query = $dbConn->prepare($sql);
+            $query = $dbConnect->prepare($sql);
             $query->execute([$value]);
-        }
-        catch(PDOException $e) {
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
         finally {
@@ -64,8 +105,7 @@ abstract class Potato
             $found->dbData = $query->fetch(PDO::FETCH_ASSOC);
 
             return $found;
-        }
-        else {
+        } else {
             throw new RecordNotFoundException;
         }
     }

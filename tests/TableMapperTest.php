@@ -23,14 +23,19 @@ class TableMapperTest extends \PHPUnit_Framework_TestCase
     {
         $dbMock = Mockery::mock('Sirolad\DB\DBConnect');
         $statement = Mockery::mock('\PDOStatement');
-        $dbMock->shouldReceive('query')->with('SELECT 1 FROM cars LIMIT 1')->andReturn($statement);
-        $dbMock->shouldReceive('query')->with('SELECT 1 FROM users LIMIT 1')->andReturn(false);
-        $this->assertTrue(TableMapper::checkTableName('cars', $dbMock));
-        $this->assertFalse(TableMapper::checkTableName('users', $dbMock));
+        $dbMock->shouldReceive('query')->with('SELECT 1 FROM users LIMIT 1')->andReturn('string');
+        $this->assertInternalType('string', (TableMapper::checkTableName('users', $dbMock)));
+        $err = "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.motors' doesn't exist";
+        $dbMock->shouldReceive('query')->with('SELECT 1 FROM motors LIMIT 1')->andReturn($err);
+        $this->assertEquals($err, TableMapper::checkTableName('motors', $dbMock));
     }
 
-    // public function testGetClassName()
-    // {
-    //     $this->assertInternalType("string", TableMapper::getClassName());
-    // }
+    public function testGetClassName()
+    {
+        $this->assertInternalType("string", TableMapper::getClassName('Sirolad\Potato\User'));
+    }
+    public function testMapTableToClass()
+    {
+        $this->assertInternalType("string", TableMapper::mapTableToClass('Sirolad\Potato\Car'));
+    }
 }
