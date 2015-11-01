@@ -44,6 +44,7 @@ class DBConnect
 
     /**
      * This method makes connection to the database on getting the necessary parameters.
+     * @return connection to database
      * */
     public function getConnection()
     {

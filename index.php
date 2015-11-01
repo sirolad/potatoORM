@@ -16,16 +16,16 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 #User Operations
 //insert
 // $user = new User();
-// $user->login = "Oladigba Ogunbiyi";
-// $user->password = md5("normandy");
+// $user->login = "Dipo Dina";
+// $user->password = md5("andelay");
 // $user->age = 56;
 // $g=$user->save();
 // var_dump($g);
 
-// $user = User::find(13);
-// $user->login = "Ginger";
-// $user->save();
-// var_dump($g);
+$user = User::find(13);
+$user->login = "Ginger";
+$g=$user->save();
+var_dump($g);
 
 //$user = User::destroy(1);
 
