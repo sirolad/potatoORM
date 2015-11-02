@@ -35,18 +35,16 @@ or
 ## Usage
 
 Extend `Potato` class like so
-```
-<?php
+```php
     class Car extends Potato
     {
 
     }
-?>
 ```
 The following method can be used to access the classes
 
 ## getAll
-```
+```php
 $goat = Goat::getAll();
 print_r($goat);
 ``` ​
@@ -54,7 +52,7 @@ This should print out all the ​goats ​in the ​goats ​table of Goat class
 
 
 ## Supported Databases
-```
+```bash
 MySQL
 PGSQL
 ```
