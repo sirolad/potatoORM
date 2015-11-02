@@ -33,23 +33,30 @@ or
 ```
 
 ## Usage
+
+Extend `Potato` class like so
 ```
-$user = User::getAll();
-print_r($user) ​
-// should print out all the ​
-users ​ in the ​
-User ​ table.
-$car = Car::getAll();
-print_r($car) ​
-// should print out all the ​
-cars ​ in the ​
-Car ​ table.
-$bicycle = Bicycle::getAll();
-print_r($bicycle) ​
-// should print out all the ​
-bicycles ​ in the ​
-Bicycle
-table.
+<?php
+    class Car extends Potato
+    {
+
+    }
+?>
+```
+The following method can be used to access the classes
+
+### getAll
+```
+$goat = Goat::getAll();
+print_r($goat);
+``` ​
+// should print out all the ​goats ​in the ​goats ​table of Goat class.
+
+
+## Supported Databases
+```
+MySQL
+PGSQL
 ```
 ## Change log
 
