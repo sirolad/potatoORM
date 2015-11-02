@@ -14,11 +14,19 @@ use Sirolad\Libraries\TableMapper;
 
 class TableMapperTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Tear down all mock objects
+     */
     public function tearDown()
     {
         Mockery::close();
     }
 
+    /**
+     * Test to check the table exists
+     * @return string
+     * @return Exception
+     * **/
     public function testcheckTableName()
     {
         $dbMock = Mockery::mock('Sirolad\DB\DBConnect');
@@ -30,10 +38,17 @@ class TableMapperTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($err, TableMapper::checkTableName('motors', $dbMock));
     }
 
+    /**
+     * Test to get classname from class namespace
+     * */
     public function testGetClassName()
     {
         $this->assertInternalType("string", TableMapper::getClassName('Sirolad\Potato\User'));
     }
+
+    /**
+     * Test to map the table to the class
+     * */
     public function testMapTableToClass()
     {
         $this->assertInternalType("string", TableMapper::mapTableToClass('Sirolad\Potato\Car'));

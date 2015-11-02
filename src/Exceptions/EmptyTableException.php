@@ -11,13 +11,22 @@ namespace Sirolad\Exceptions;
 
 use PDOException;
 
+/**
+ * Exception class for Empty Table
+ * */
 class EmptyTableException extends PDOException
 {
+     /**
+     * constructor class
+     * */
     public function __construct()
     {
         parent::__construct('The table is empty.');
     }
 
+    /**
+     * @return string
+     * */
     public function message()
     {
         return 'Fatal Error: ' . $this->getMessage();

@@ -9,13 +9,22 @@ namespace Sirolad\Exceptions;
 
 use PDOException;
 
+/**
+ * Exception class for Inexistent Table
+ * */
 class TableDoesNotExistException extends PDOException
 {
+    /**
+     * constructor class
+     * */
     public function __construct()
     {
         parent::__construct('This table does not exist.');
     }
 
+    /**
+     * @return string
+     * */
     public function message()
     {
         return 'Fatal Error: ' . $this->getMessage();
