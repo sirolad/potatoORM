@@ -45,12 +45,12 @@ Extend `Potato` class like so
 ```
 The following method can be used to access the classes
 
-### getAll
+## getAll
 ```
 $goat = Goat::getAll();
 print_r($goat);
 ``` ​
-// should print out all the ​goats ​in the ​goats ​table of Goat class.
+This should print out all the ​goats ​in the ​goats ​table of Goat class.
 
 
 ## Supported Databases
