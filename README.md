@@ -2,15 +2,7 @@
 
 [![Build Status](https://travis-ci.org/andela-sakande/potatoORM.svg)](https://travis-ci.org/andela-sakande/potatoORM)
 
-This package aims to provide an analysis based on the number of open source
-projects an individual possess on Github. It ranks the individual based on the number
-of repositories as folows :
-
-`>= 5 and <= 10        Junior Evangelist`
-
-`>= 11 and <= 20       Associate Evangelist`
-
-`>= 21                 Most Senior Evangelist`
+This package performs basic CRUD operation using Object Relational Mapping(ORM) :
 
 DIRECTORY STRUCTURE
 -------------------
@@ -31,11 +23,13 @@ tests/         tests of the core package
 Via Composer
 
 ``` bash
-$ composer install sirolad/open-source-evangelist-agnostic-package
+$ composer require sirolad/potato-orm
 ```
-
-``` bash
-$ composer install
+or
+``` composer.json
+"require": {
+        "sirolad/potato-orm": "dev-master"
+    }
 ```
 
 ## Usage
