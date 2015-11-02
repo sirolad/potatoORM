@@ -138,8 +138,7 @@ abstract class Potato
                 $sql = 'UPDATE ' . $this->tableName() . ' SET ' . Formatter::tokenize(implode(',', Formatter::makeAssociativeArray($this->record)), ',') . ' WHERE id=' . $this->record['dbData']['id'];
                 $query = $dbConn->prepare($sql);
                 $query->execute();
-            }
-            else {
+            } else {
                 $sql = 'INSERT INTO ' . $this->tableName() . ' (' . Formatter::tokenize(implode(',', array_keys($this->record)), ',') . ')' . ' VALUES ' . '(' . Formatter::tokenize(implode(',', Formatter::generateUnnamedPlaceholders($this->record)), ',') . ')';
                 $query = $dbConn->prepare($sql);
                 $query->execute(array_values($this->record));
@@ -157,10 +156,7 @@ abstract class Potato
     public function destroy($record)
     {
         try {
-
             $dbConn = self::makeDbConn();
-
-
             $query = $dbConn->prepare('DELETE FROM ' . self::tableName($dbConn) . ' WHERE id= ' . $record);
             $query->execute();
             $check = $query->rowCount();
