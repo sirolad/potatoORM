@@ -46,8 +46,16 @@ The following method can be used to access the classes
 ``` php
    $goat = Goat::getAll();
    print_r($goat);
-``` 
+```
 This should print out all the ​goats ​in the ​goats ​table of Goat class.
+
+## find
+``` php
+    $insert = Goat::find(1);
+    $insert->password = "ewure";
+    echo $insert->save()
+```
+This should find the ​goat ​with `id=1` in the goats table and change the password to `ewure`.
 
 ## Change log
 
