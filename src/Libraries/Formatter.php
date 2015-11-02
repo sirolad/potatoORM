@@ -8,11 +8,12 @@
 namespace Sirolad\Libraries;
 
 use Sirolad\Exception;
+use Sirolad\Interfaces\FormatterInterface;
 
 /**
  * This class pluralizes, tokenize, make placeholders and associative array for the main class (Potato).
  * */
-class Formatter
+class Formatter implements FormatterInterface
 {
     /**
      * Pluralizes or singularizes inputs

@@ -32,10 +32,10 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 
 // var_dump($user);
 //Update
-$user = User::where('login', 'JackBauer');
-$user->password = "wetina";
-$g = $user->save();
-var_dump($g);
+// $user = User::where('login', 'JackBauer');
+// $user->password = "wetina";
+// $g = $user->save();
+// var_dump($g);
 //
 // $user = User::getAll();
 // print_r($user);
@@ -49,5 +49,5 @@ var_dump($g);
 // $k = $car->save();
 // var_dump($k);
 // Print all
-// $car = Bicycle::getAll();
+// $car = Car::getAll();
 // print_r($car);

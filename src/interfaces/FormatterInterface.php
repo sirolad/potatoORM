@@ -2,6 +2,9 @@
 
 namespace Sirolad\Interfaces;
 
+/**
+ * Interface for Formatter class
+ * */
 interface FormatterInterface
 {
     public static function decideS($str);

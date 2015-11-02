@@ -23,7 +23,7 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 /**
  * Potato is the main class which is not to be instantiated.
  * */
-abstract class Potato
+abstract class Potato implements PotatoInterface
 {
     /**
      * @var array Array for holding properties set with magic method __set()
@@ -109,6 +109,11 @@ abstract class Potato
         }
     }
 
+    /**
+     * Get all the records in a database table
+     * @return array|object
+     * @return exception
+     */
     public function getAll()
     {
         try {
@@ -129,6 +134,11 @@ abstract class Potato
         }
     }
 
+    /**
+     * Insert or Update a record in a database table
+     * @return inte
+     * @return exception
+     */
     public function save()
     {
         try {
@@ -153,6 +163,12 @@ abstract class Potato
         return $query->rowCount();
     }
 
+    /**
+     * Delete a record from the database table
+     * @param int $record Index of record to be deleted
+     * @return bool|string
+     * @return exception
+     */
     public function destroy($record)
     {
         try {

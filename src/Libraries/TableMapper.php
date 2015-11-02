@@ -11,12 +11,13 @@ namespace Sirolad\Libraries;
 use PDOException;
 use Sirolad\DB\DBConnect;
 use Sirolad\Libraries\Formatter;
+use Sirolad\Interfaces\TableMapperInterface;
 use Sirolad\Exceptions\TableDoesNotExistException;
 
 /**
  *
  */
-class TableMapper
+class TableMapper implements TableMapperInterface
 {
     /**
      * Check for the existence of a table in the currentt database

@@ -2,6 +2,9 @@
 
 namespace Sirolad\Interfaces;
 
+/**
+ * Interface for the main class
+ * */
 interface PotatoInterface
 {
     public function __set($field, $value);

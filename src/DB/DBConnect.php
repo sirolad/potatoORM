@@ -10,6 +10,7 @@ namespace Sirolad\DB;
 
 use PDO;
 use Dotenv\Dotenv;
+
 /**
  * This class manages the database connection for PotatoORM
  * It loads environmental variables from .env file
