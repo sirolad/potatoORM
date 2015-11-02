@@ -49,13 +49,6 @@ print_r($goat);
 ``` ​
 This should print out all the ​goats ​in the ​goats ​table of Goat class.
 
-
-## Supported Databases
-
-``` bash
-MySQL
-PGSQL
-```
 ## Change log
 
 Please check out [CHANGELOG](CHANGELOG.md) file for information on what has changed recently.
@@ -81,3 +74,10 @@ Open-source Evangelist is developed and maintained by `Surajudeen Akande`.
 ## License
 
 Open-source Evangelist is released under the MIT Licence. See the bundled [LICENSE](LICENSE.md) file for details.
+
+## Supported Databases
+
+``` bash
+MySQL
+PGSQL
+```
