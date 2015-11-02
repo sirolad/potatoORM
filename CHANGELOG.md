@@ -1,20 +1,5 @@
 # Changelog
 
-All Notable changes to `:package_name` will be documented in this file
+## 2015-10-03, v1.0.0
 
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+Initial Version
