@@ -3,7 +3,7 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/andela-sakande/PotatoORM/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/andela-sakande/potatoORM.svg)](https://travis-ci.org/andela-sakande/potatoORM)
 [![Quality Score](https://img.shields.io/scrutinizer/g/andela-sakande/PotatoORM.svg?style=flat-square)](https://scrutinizer-ci.com/g/andela-sakande/PotatoORM)
-[![Scruitinizer Code](https://scrutinizer-ci.com/g/andela-sakande/PotatoORM/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sakande/PotatoORM)
+<!-- [![Scruitinizer Code](https://scrutinizer-ci.com/g/andela-sakande/PotatoORM/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/andela-sakande/PotatoORM) -->
 
 This package performs basic CRUD operation using Object Relational Mapping(ORM) :
 
@@ -21,7 +21,7 @@ tests/         tests of the core package
 
 ## Installation
 
-[PHP](https://php.net) 5.5+ and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.3+ and [Composer](https://getcomposer.org) are required.
 
 Via Composer
 
