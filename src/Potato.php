@@ -60,7 +60,7 @@ abstract class Potato
     }
 
     /**
-     * @return Database connection
+     * @return object Database connection
      */
     protected function makeDbConn()
     {
@@ -110,24 +110,23 @@ abstract class Potato
         }
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         try {
             $dbConn = self::makeDbConn();
             $query = $dbConn->prepare('SELECT * FROM ' . self::tableName());
             $query->execute();
-        }
-        catch(PDOException $e) {
+
+            if ($query->rowCount()) {
+                return json_encode($query->fetchAll(PDO::FETCH_ASSOC), JSON_FORCE_OBJECT);
+            } else {
+                throw new EmptyTableException;
+            }
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
         finally {
             $dbConn = null;
-        }
-
-        if ($query->rowCount()) {
-            return json_encode($query->fetchAll(PDO::FETCH_ASSOC), JSON_FORCE_OBJECT);
-        }
-        else {
-            throw new EmptyTableException;
         }
     }
 
@@ -156,29 +155,25 @@ abstract class Potato
         return $query->rowCount();
     }
 
-    public function destroy($record) {
+    public function destroy($record)
+    {
         try {
             $dbConn = self::makeDbConn();
             $query = $dbConn->prepare('DELETE FROM ' . self::tableName() . ' WHERE id= ' . $record);
             $query->execute();
-        }
-        catch(PDOException $e) {
-            return $e->getMessage();
-        }
-        finally {
-            $dbConn = null;
-        }
-
-        $check = $query->rowCount();
-
-        try {
+            $check = $query->rowCount();
             if ($check) {
                 return $check;
             } else {
-                throw new RecordNotFoundException;
+                throw new EmptyTableException;
             }
-        } catch (RecordNotFoundException $e) {
-             echo $e->message();
+        } catch (PDOException $e) {
+            echo $e->message();
+        } catch (EmptyTableException $e) {
+            echo $e->message();
+        }
+        finally {
+            $dbConn = null;
         }
     }
 }

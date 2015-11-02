@@ -28,7 +28,7 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 // $g=$user->save();
 // var_dump($g);
 
-// $user = User::destroy(1);
+$user = User::destroy(13);
 
 // var_dump($user);
 //Update
@@ -49,5 +49,5 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 // $k = $car->save();
 // var_dump($k);
 // Print all
-$car = Car::getAll();
-print_r($car);
+// $car = Bicycle::getAll();
+// print_r($car);

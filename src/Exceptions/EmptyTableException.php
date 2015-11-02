@@ -20,6 +20,6 @@ class EmptyTableException extends PDOException
 
     public function message()
     {
-        return 'Error: ' . $this->getMessage();
+        return 'Fatal Error: ' . $this->getMessage();
     }
 }
