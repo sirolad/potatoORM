@@ -51,11 +51,28 @@ This should print out all the ​goats ​in the ​goats ​table of Goat class
 
 ## find
 ``` php
-    $insert = Goat::find(1);
-    $insert->password = "ewure";
-    echo $insert->save()
+    $goat = Goat::find(1);
+    $goat->password = "ewure";
+    echo $goat->save();
 ```
 This should find the ​goat ​with `id=1` in the goats table and change the password to `ewure`.
+
+## save
+```php
+    $goat = new Goat();
+    $goat->name = "billy";
+    $goat->age  = 25;
+    $goat->job  = "developer";
+    $goat->save();
+```
+This should insert a record for goat `billy` in the goats table.
+
+## Update
+```php
+    $gaot = Goat::where('name', 'JackBauer');
+    $gaot->password = "wetina";
+    $gaot->save();
+```
 
 ## Change log
 
