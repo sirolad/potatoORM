@@ -11,5 +11,13 @@ use PDOException;
 
 class TableDoesNotExistException extends PDOException
 {
+    public function __construct()
+    {
+        parent::__construct('This table does not exist.');
+    }
 
+    public function message()
+    {
+        return 'Fatal Error: ' . $this->getMessage();
+    }
 }

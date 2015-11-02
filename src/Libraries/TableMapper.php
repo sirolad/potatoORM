@@ -27,8 +27,8 @@ class TableMapper
      */
     public static function checkTableName($table)
     {
-        $dbConnect = new DBConnect();
         try {
+            $dbConnect = new DBConnect();
             $result = $dbConnect->getConnection()->query('SELECT 1 FROM ' . $table . ' LIMIT 1');
             if ($result !== false) {
                 return $table;

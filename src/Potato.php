@@ -93,20 +93,19 @@ abstract class Potato
             $sql = 'SELECT * FROM ' . self::tableName() . ' WHERE ' . $field . ' = ?';
             $query = $dbConnect->prepare($sql);
             $query->execute([$value]);
+            if ($query->rowCount()) {
+                $found = new static;
+                $found->dbData = $query->fetch(PDO::FETCH_ASSOC);
+
+                return $found;
+            } else {
+                throw new RecordNotFoundException;
+            }
         } catch (PDOException $e) {
             return $e->getMessage();
         }
         finally {
             $dbConn = null;
-        }
-
-        if ($query->rowCount()) {
-            $found = new static;
-            $found->dbData = $query->fetch(PDO::FETCH_ASSOC);
-
-            return $found;
-        } else {
-            throw new RecordNotFoundException;
         }
     }
 
@@ -130,7 +129,8 @@ abstract class Potato
         }
     }
 
-    public function save() {
+    public function save()
+    {
         try {
             $dbConn = self::makeDbConn();
 
@@ -144,8 +144,7 @@ abstract class Potato
                 $query = $dbConn->prepare($sql);
                 $query->execute(array_values($this->record));
             }
-        }
-        catch(PDOException $e) {
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
         finally {
@@ -158,8 +157,11 @@ abstract class Potato
     public function destroy($record)
     {
         try {
+
             $dbConn = self::makeDbConn();
-            $query = $dbConn->prepare('DELETE FROM ' . self::tableName() . ' WHERE id= ' . $record);
+
+
+            $query = $dbConn->prepare('DELETE FROM ' . self::tableName($dbConn) . ' WHERE id= ' . $record);
             $query->execute();
             $check = $query->rowCount();
             if ($check) {
@@ -168,7 +170,7 @@ abstract class Potato
                 throw new EmptyTableException;
             }
         } catch (PDOException $e) {
-            echo $e->message();
+            echo $e->getMessage();
         } catch (EmptyTableException $e) {
             echo $e->message();
         }

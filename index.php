@@ -28,14 +28,14 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 // $g=$user->save();
 // var_dump($g);
 
-$user = User::destroy(13);
+// $user = User::destroy(13);
 
 // var_dump($user);
 //Update
-// $user = User::where('login', 'Jackbauer');
-// $user->password = "wetin";
-// $g = $user->save();
-// var_dump($g);
+$user = User::where('login', 'JackBauer');
+$user->password = "wetina";
+$g = $user->save();
+var_dump($g);
 //
 // $user = User::getAll();
 // print_r($user);
