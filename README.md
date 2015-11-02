@@ -36,7 +36,7 @@ or
 
 Extend `Potato` class like so
 ``` php
-    class Car extends Potato
+    class Goat extends Potato
     {
     }
 ```
