@@ -1,5 +1,6 @@
 # PotatoORM
 
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/andela-sakande/PotatoORM/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/andela-sakande/potatoORM.svg)](https://travis-ci.org/andela-sakande/potatoORM)
 
 This package performs basic CRUD operation using Object Relational Mapping(ORM) :
