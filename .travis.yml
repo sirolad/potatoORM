@@ -23,7 +23,11 @@ matrix:
     - php: hhvm
   fast_finish: true
 
+env:
+  -DB=mysql
+
 # Customize when the notification emails are sent.
 notifications:
     on_success: never
     on_failure: always
+
