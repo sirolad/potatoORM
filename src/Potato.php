@@ -50,7 +50,6 @@ class Potato implements PotatoInterface
         {
             return TableMapper::getClassName($con);
         }
-        return TableMapper::mapTableToClass(get_called_class());
     }
 
     /**
