@@ -23,7 +23,7 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 /**
  * Potato is the main class which is not to be instantiated.
  * */
-abstract class Potato implements PotatoInterface
+class Potato implements PotatoInterface
 {
     /**
      * @var array Array for holding properties set with magic method __set()
@@ -44,8 +44,12 @@ abstract class Potato implements PotatoInterface
     /**
      * @return string table name of Called class
      */
-    public function tableName()
+    public function tableName($con = NULL)
     {
+        if(! is_null($con))
+        {
+            return TableMapper::getClassName($con);
+        }
         return TableMapper::mapTableToClass(get_called_class());
     }
 
