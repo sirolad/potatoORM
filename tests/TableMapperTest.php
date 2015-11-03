@@ -33,9 +33,6 @@ class TableMapperTest extends \PHPUnit_Framework_TestCase
         $statement = Mockery::mock('\PDOStatement');
         $dbMock->shouldReceive('query')->with('SELECT 1 FROM users LIMIT 1')->andReturn('string');
         $this->assertInternalType('string', (TableMapper::checkTableName('users', $dbMock)));
-        $err = "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'test.motors' doesn't exist";
-        $dbMock->shouldReceive('query')->with('SELECT 1 FROM motors LIMIT 1')->andReturn($err);
-        $this->assertEquals($err, TableMapper::checkTableName('motors', $dbMock));
     }
 
     /**
