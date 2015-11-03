@@ -24,14 +24,6 @@ matrix:
     - php: hhvm
   fast_finish: true
 
-env:
-  -DB_HOST=127.0.0.1
-  -DB_PORT=33060
-  -DB_ENGINE=mysql
-  -DB_DATABASE=test
-  -DB_USERNAME=root
-  -DB_PASSWORD=root
-
 # Customize when the notification emails are sent.
 notifications:
     on_success: never
