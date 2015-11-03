@@ -64,28 +64,9 @@ class PotatoTest extends \PHPUnit_Framework_TestCase
     /**
      * Test class can be instantiated
     **/
-    public function testinstanceCanBeCreated()
+    public function save()
     {
-        $instance = new PotatoStub();
-        $instance->name = "Twale";
-        $instance->location = "Lagos";
-        $properties = $instance->getRecord();
-        $this->assertArrayHasKey('name', $properties);
-        $this->assertEquals(1, $instance->save());
-        $this->assertNotEmpty($instance->getRecord());
-    }
-
-    /**
-     * Test attributes can be manipulated
-    **/
-    public function testAttributesCanBeManipulated()
-    {
-        $instance = new PotatoStub();
-        $instance->email = 'otemuyiwa@example.com';
-        $instance->password = 'password';
-        $this->assertArrayHasKey('email', $instance->getRecord());
-        $this->assertNotContains('otemuyiwa', $instance->getRecord());
-        unset($instance->email);
-        $this->assertFalse(isset($instance->email));
+        $mock = Mockery::mock('Sirolad\Test\PotatoStub');
+        $mock->shouldReceive('save')->with(1)->andReturn(true);
     }
 }

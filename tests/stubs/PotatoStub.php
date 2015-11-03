@@ -32,4 +32,9 @@ class PotatoStub extends Potato
     {
         return 'foo';
     }
+
+    public function save()
+    {
+        return true;
+    }
 }
