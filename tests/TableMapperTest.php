@@ -42,12 +42,4 @@ class TableMapperTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInternalType("string", TableMapper::getClassName('Sirolad\Potato\User'));
     }
-
-    /**
-     * Test to map the table to the class
-     * */
-    public function testMapTableToClass()
-    {
-        $this->assertInternalType("string", TableMapper::mapTableToClass('Sirolad\Potato\Car'));
-    }
 }

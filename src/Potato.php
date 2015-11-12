@@ -44,10 +44,9 @@ class Potato implements PotatoInterface
     /**
      * @return string table name of Called class
      */
-    public function tableName($con = NULL)
+    public function tableName($con = null)
     {
-        if(! is_null($con))
-        {
+        if (! is_null($con)) {
             return TableMapper::getClassName($con);
         }
     }
