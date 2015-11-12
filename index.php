@@ -37,8 +37,8 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 // $g = $user->save();
 // var_dump($g);
 //
-// $user = User::getAll();
-// print_r($user);
+$user = User::getAll();
+print_r($user);
 
 #Cars Operations
 //Insert
