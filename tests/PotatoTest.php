@@ -27,8 +27,8 @@ class PotatoTest extends \PHPUnit_Framework_TestCase
     **/
     public function testTableName()
     {
-        $cls = new Potato();
-        $this->assertInternalType("string", $cls->tableName());
+        $potato = new Potato();
+        $this->assertInternalType("string", $potato->tableName());
     }
 
     /**
