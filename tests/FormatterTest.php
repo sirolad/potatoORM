@@ -18,11 +18,11 @@ class FormatterTest extends \PHPUnit_Framework_TestCase
     /**
      * Test for singularize or pluralize
      * */
-    public function testdecideS()
+    public function testAddOrRemoveS()
     {
-        $this->assertEquals('user', Formatter::decideS('users'));
-        $this->assertEquals('cars', Formatter::decideS('car'));
-        $this->assertNotEquals('cars', Formatter::decideS('cars'));
+        $this->assertEquals('user', Formatter::addOrRemoveS('users'));
+        $this->assertEquals('cars', Formatter::addOrRemoveS('car'));
+        $this->assertNotEquals('cars', Formatter::addOrRemoveS('cars'));
     }
 
     /**

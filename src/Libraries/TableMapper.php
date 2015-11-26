@@ -49,15 +49,6 @@ class TableMapper implements TableMapperInterface
     public static function getClassName($className)
     {
         $demarcation = explode('\\', $className);
-        return Formatter::decideS(strtolower($demarcation[2]));
-    }
-
-    /**
-     * @var array classname from class namespace
-     * @return string classname mapped to tablename
-     **/
-    public static function mapTableToClass($className)
-    {
-        return self::checkTableName(self::getClassName($className));
+        return Formatter::addOrRemoveS(strtolower(end($demarcation)));
     }
 }

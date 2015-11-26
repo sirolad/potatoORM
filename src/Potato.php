@@ -42,14 +42,12 @@ class Potato implements PotatoInterface
     }
 
     /**
+     * @param string connection to class name
      * @return string table name of Called class
      */
-    public function tableName($con = NULL)
+    public function tableName()
     {
-        if(! is_null($con))
-        {
-            return TableMapper::getClassName($con);
-        }
+        return TableMapper::getClassName(get_called_class());
     }
 
     /**
@@ -96,7 +94,7 @@ class Potato implements PotatoInterface
             $sql = 'SELECT * FROM ' . self::tableName() . ' WHERE ' . $field . ' = ?';
             $query = $dbConnect->prepare($sql);
             $query->execute([$value]);
-            if ($query->rowCount()) {
+            if ($query->rowCount() > 0) {
                 $found = new static;
                 $found->dbData = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -104,11 +102,11 @@ class Potato implements PotatoInterface
             } else {
                 throw new RecordNotFoundException;
             }
-        } catch (PDOException $e) {
-            return $e->getMessage();
+        } catch (RecordNotFoundException $e) {
+            return $e->message();
         }
         finally {
-            $dbConn = null;
+            $dbConnect = null;
         }
     }
 
@@ -158,6 +156,8 @@ class Potato implements PotatoInterface
             }
         } catch (PDOException $e) {
             return $e->getMessage();
+        } catch (RecordNotFoundException $e) {
+            return $e->message();
         }
         finally {
             $dbConn = null;
@@ -182,12 +182,10 @@ class Potato implements PotatoInterface
             if ($check) {
                 return $check;
             } else {
-                throw new EmptyTableException;
+                throw new RecordNotFoundException;
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
-        } catch (EmptyTableException $e) {
-            echo $e->message();
         }
         finally {
             $dbConn = null;

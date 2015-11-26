@@ -20,7 +20,7 @@ class RecordNotFoundException extends PDOException
      * */
     public function __construct()
     {
-        parent::__construct('This record does not exist.');
+        $this->message();
     }
 
     /**
@@ -28,6 +28,6 @@ class RecordNotFoundException extends PDOException
      * */
     public function message()
     {
-        return 'Fatal Error: ' . $this->getMessage();
+        return 'Fatal Error: This record does not exist';
     }
 }

@@ -9,7 +9,5 @@ interface TableMapperInterface
 {
     public static function checkTableName($table);
 
-    public static function mapTableToClass($className);
-
     public static function getClassName($className);
 }

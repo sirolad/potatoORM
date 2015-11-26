@@ -23,18 +23,38 @@ use Sirolad\Exceptions\TableDoesNotExistException;
 // $g=$user->save();
 // var_dump($g);
 
-// $user = User::find(13);
-// $user->login = "Ginger";
+
+// $user = User::find(2);
+// $user->login = "Hello Bag";
 // $g=$user->save();
 // var_dump($g);
 
-// $user = User::destroy(13);
+//$user = User::destroy(20);
 
 // var_dump($user);
 //Update
-// $user = User::where('login', 'JackBauer');
-// $user->password = "wetina";
+// $user = User::where('login', 'Ginge');
+// $user->password = "asdfg1234567";
 // $g = $user->save();
+// var_dump($user);
+// try {
+//     $user = User::where('login', 'Ginge');
+//     $user->password = 'caller';
+//     $g = $user->save();
+// } catch (RecordNotFoundException $e) {
+//     $e->message();
+// }
+// var_dump($g);
+$user = User::where('login', 'Ginge');
+if (is_string($user)) {
+    die($user);
+} else {
+    $user->password = "something";
+    $user->save();
+}
+
+// // $user->password = "hello";
+// // $g = $user->save();
 // var_dump($g);
 //
 // $user = User::getAll();

@@ -7,7 +7,7 @@ namespace Sirolad\Interfaces;
  * */
 interface FormatterInterface
 {
-    public static function decideS($str);
+    public static function addOrRemoveS($str);
 
     public static function tokenize($str, $delimiter);
 

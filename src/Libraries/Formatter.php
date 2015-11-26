@@ -20,7 +20,7 @@ class Formatter implements FormatterInterface
      * @param string $str
      * @return string $str
      * */
-    public static function decideS($str)
+    public static function addOrRemoveS($str)
     {
         $tableNameAsArray = str_split($str);
 
