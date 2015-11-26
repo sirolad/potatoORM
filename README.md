@@ -97,11 +97,11 @@ Please check out [CONTRIBUTING](CONTRIBUTING.md) file for detailed contribution 
 
 ## Credits
 
-Open-source Evangelist is developed and maintained by `Surajudeen Akande`.
+PotatoORM is developed and maintained by `Surajudeen Akande`.
 
 ## License
 
-Open-source Evangelist is released under the MIT Licence. See the bundled [LICENSE](LICENSE.md) file for details.
+PotatoORM is released under the MIT Licence. See the bundled [LICENSE](LICENSE.md) file for details.
 
 ## Supported Databases
 
